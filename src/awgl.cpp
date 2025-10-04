@@ -448,7 +448,7 @@ Rcpp::List awgl(const arma::mat Y,
       }
       uword index1;
       // If .col(1), refer to BIC with log term
-      (BIC_lambda.col(0)).min(index1);
+      index1 = BIC_lambda.col(0).index_min();
       arma::mat weight_scad_deriv = scad_derivative(arma::abs(gamma.col(index1)), lambda[index1], scad_weight);
       omega = omega_weight(weight_scad_deriv, p, L);
       
